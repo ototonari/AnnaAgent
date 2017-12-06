@@ -29,6 +29,8 @@ from linebot.models import (
 )
 from linebot.utils import PY3
 
+from sqlHandler import postgresql
+
 # get channel_secret and channel_access_token from your environment variable
 channel_secret = os.getenv('LINE_CHANNEL_SECRET', None)
 channel_access_token = os.getenv('LINE_CHANNEL_ACCESS_TOKEN', None)

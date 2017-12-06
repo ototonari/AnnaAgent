@@ -6,6 +6,7 @@
 import psycopg2
 import psycopg2.extras
 import json
+import os
 
 # データベースへの各種インスタンスを保持するクラス。
 # 外部へは関与しない。
@@ -21,7 +22,8 @@ class PostgresqlHandler():
 
   # 非公開メソッド
   def __importConfig(self):
-    with open('./.postgresql.conf', 'r') as f:
+    path = os.path.dirname(os.path.abspath(__file__))
+    with open('{}/.postgresql.conf'.format(path), 'r') as f:
       config = json.load(f)
       print("debug:: config: {}".format(config))
       return config
