@@ -51,23 +51,6 @@ class PostgresqlHandler():
       pass
 
   # 公開メソッド
-  def sampletest(self, cursor):
-    try:
-      cursor.execute("create table demo(id int,data text)")
-    except psycopg2.ProgrammingError as e:
-      print(e)
-      pass
-    cursor.execute("insert into demo values(1,'HELLO WORLD')")
-    cursor.execute("insert into demo values(2,'HELLO KKA')")
-    cursor.execute("select id, data from demo")
-    
-    for row in cursor:
-      print(row["id"], row["data"])
-  
-  def testSelect(self):
-    self.__cursor.execute("select id, data from demo")
-    for row in self.__cursor:
-      print(row["id"], row["data"])
 
   # ユーザーデータを格納する
   # rule: 格納すべきカラムスをそのまま文字列で渡す。
@@ -107,6 +90,4 @@ class PostgresqlHandler():
       raise
 
 
-
-# ./.postgresql.conf をJSON形式で読み込み、辞書として取得する
 psqlHandler = PostgresqlHandler()
